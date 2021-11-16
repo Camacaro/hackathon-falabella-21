@@ -3,3 +3,5 @@ src/uploads/**
 !src/uploads/.keep
 .env
 build/
+src/cvsProcessed/**
+!src/cvsProcessed/.keep

@@ -9,7 +9,8 @@ const storage = multer.diskStorage({
     cb(null, pathUpload)
   },
   filename: (req, file, cb) => {
-    cb(null, file.fieldname + "-" + Date.now() + "-" + file.originalname)
+    `${file.fieldname}-${Date.now()}-${file.originalname}`
+    cb(null, `${file.fieldname}-${Date.now()}-${file.originalname}`)
   }
 });
 

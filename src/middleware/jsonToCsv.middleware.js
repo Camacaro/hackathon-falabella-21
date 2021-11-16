@@ -1,7 +1,7 @@
 import { jsonToCsv } from "../controller/jsonToCsv.controller"
-import { httpResponse } from "../utils/httpResponse"
+import { donwloadFile, httpResponse } from "../utils/httpResponse"
 
-export const jsonToCsvMiddleware = (req, res, next) => {
+export const jsonToCsvMiddleware = async (req, res, next) => {
   console.log('4. jsonToCsvMiddleware')
   try {
     const {dataPredited} = req.body;
@@ -9,9 +9,9 @@ export const jsonToCsvMiddleware = (req, res, next) => {
       return httpResponse({res, statusCode: 400, message: 'data predited it was not processed' })  
     }
 
-    const csv = jsonToCsv(dataPredited);
+    const filePathCsv = await jsonToCsv(dataPredited);
 
-    return httpResponse({res, statusCode: 200, payload: csv})
+    return donwloadFile({res, filePath: filePathCsv})
   } catch (error) {
     console.log(error)
     return httpResponse({res, statusCode: 500 })
