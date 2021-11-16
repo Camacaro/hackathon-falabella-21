@@ -9,9 +9,7 @@ export const jsonToCsvMiddleware = async (req, res, next) => {
       return httpResponse({res, statusCode: 400, message: 'data predicted it was not processed' })  
     }
 
-    const filePathCsv = await jsonToCsv(dataPredited);
-
-    console.log(filePathCsv)
+    const filePathCsv = await jsonToCsv(dataPredicted);
 
     return donwloadFile({res, filePath: filePathCsv})
   } catch (error) {
