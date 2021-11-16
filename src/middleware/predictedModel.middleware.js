@@ -1,4 +1,3 @@
-import { json } from "express"
 import { predictedModel } from "../controller/predictedModel.controller"
 import { httpResponse } from "../utils/httpResponse"
 
