@@ -4,3 +4,5 @@ src/uploads/**
 .env
 build/
 .vscode
+src/cvsProcessed/**
+!src/cvsProcessed/.keep

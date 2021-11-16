@@ -13,3 +13,7 @@ export const httpResponse = ({ res, statusCode, payload = [], message = '', desc
 
   return res.status(statusCode).json(response)
 }
+
+export const donwloadFile = ({res, filePath}) => {
+  return res.download(filePath);
+}
