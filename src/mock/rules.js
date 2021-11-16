@@ -22,7 +22,11 @@ const RULES = [
          {
             "value":"SODIMAC",
             "weight":0.1
-         }          
+         },
+         {
+            "value":"HD CORP",
+            "weight":0.05
+         }             
        ]
     },
     {

@@ -1,5 +1,4 @@
 
 export const jsonToCsv = (json) => {
-
-  return '=== csv ===';
+  return json;
 }
