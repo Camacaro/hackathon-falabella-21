@@ -4,7 +4,7 @@ import { predictedModelMiddleware } from '../middleware/predictedModel.middlewar
 import { csvToJsonMiddleware } from '../middleware/csvToJson.middleware';
 import { uploadCsv } from '../middleware/uploadCsv.middleware';
 
-export const proccessCsvRouter = express();
+const proccessCsvRouter = express();
 
 const prefix = '/csv';
 
@@ -16,3 +16,4 @@ proccessCsvRouter.post(
   jsonToCsvMiddleware
 );
 
+export default proccessCsvRouter;

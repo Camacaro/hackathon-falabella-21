@@ -1,8 +1,16 @@
+import fs from 'fs'
+import path from 'path'
 import express from 'express'
-import { healtyRouter } from './healthy';
-import { proccessCsvRouter } from './proccessCsv.router';
 
 export const router = express();
 
-router.use( healtyRouter );
-router.use( proccessCsvRouter );
+const filePath = path.resolve( __dirname , '.')
+
+fs.readdirSync(filePath).forEach(file => {
+  
+  if(file === 'index.js') return;
+
+  import(`${filePath}/${file}`).then((m) => { 
+    router.use( m.default );
+  })
+});
