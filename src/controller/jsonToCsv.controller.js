@@ -2,10 +2,6 @@ import path from 'path'
 import {createObjectCsvWriter} from 'csv-writer'
 import { headersCsv } from '../utils/headersCsv';
 
-<<<<<<< HEAD
-export const jsonToCsv = (json) => {
-  return json;
-=======
 export const jsonToCsv = async (json) => {  
   const filePath = path.resolve( __dirname , `../cvsProcessed/${new Date().toISOString()}.csv`)
 
@@ -17,5 +13,4 @@ export const jsonToCsv = async (json) => {
   await csvWriter.writeRecords(json)
 
   return filePath
->>>>>>> main
 }
