@@ -19,13 +19,19 @@ const RuleSchema = Schema({
     required: true,
   },
   weight: {
-    type: String,
+    type: Number,
     required: true,
   },
-  conditions: {
-    type: String,
-    required: true,
-  }
+  conditions: [{
+    value: {
+      type: String,
+      required: true,
+    },
+    weight: {
+      type: Number,
+      required: true,
+    }
+  }]
 });
 
 
