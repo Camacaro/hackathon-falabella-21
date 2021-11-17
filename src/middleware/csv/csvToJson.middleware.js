@@ -1,6 +1,6 @@
 import path from 'path';
-import { csvToJson } from "../controller/csvToJson.controller";
-import { httpResponse } from "../utils/httpResponse"
+import { csvToJson } from "../../controller/csv/csvToJson.controller";
+import { httpResponse } from "../../utils/httpResponse"
 
 export const csvToJsonMiddleware = async (req, res, next) => {
   console.log('2. csvToJsonMiddleware')
@@ -9,7 +9,7 @@ export const csvToJsonMiddleware = async (req, res, next) => {
       return httpResponse({res, statusCode: 400, message: 'Please upload a CSV file!' })
     }
 
-    const filePath = path.resolve( __dirname , `../uploads/${req.file.filename}`)
+    const filePath = path.resolve( __dirname , `../../uploads/${req.file.filename}`)
 
     const jsonCsv = await csvToJson(filePath);
     
