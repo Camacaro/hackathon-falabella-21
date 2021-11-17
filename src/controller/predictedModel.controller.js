@@ -34,17 +34,19 @@ const checkItinerary = (pkg) => {
   //BUSCAR LONGITUD CAMINO
   let pkgNodes = Object.keys(pkg)
   .filter(key => key.startsWith('ESTIMATED ARRIVAL NODE'));  
-  let itineraryLength = pkgNodes.length;   
+  let itineraryLength = pkgNodes.length + 1;   
   pkgNodes.forEach(attr => {
     let nodeNumber = attr.slice(attr.length - 1);
     if(pkg[attr] === '-') {
-      itineraryLength = nodeNumber;
+      itineraryLength = nodeNumber-1;
+      return
     }
   });      
   //BUSCAR DONDE ESTOY
   for(let i = 2; i <= itineraryLength; i++){
     if(pkg[`NODE ARRIVAL${i}`] === '-') {
       whereAmIHeading = i;
+      break
     }
   };  
   return {
