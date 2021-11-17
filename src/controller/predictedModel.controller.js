@@ -1,4 +1,5 @@
-const RULES = require('../mock/rules');
+import {RULES} from '../mock/rules'
+
 export const predictedModel = (csvJSON) => {
   csvJSON.forEach(pkg => {
     let pkgProability = 0;

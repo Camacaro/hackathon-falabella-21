@@ -1,5 +1,5 @@
 import { httpResponse } from "../utils/httpResponse"
-const RULES = require('../mock/rules')
+import {RULES} from '../mock/rules'
 
 export const calculateProbabilityMiddleware = (req, res, next) => {
     let probability
