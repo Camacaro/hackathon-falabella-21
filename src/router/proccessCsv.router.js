@@ -1,8 +1,8 @@
 import express from 'express';
-import { jsonToCsvMiddleware } from '../middleware/jsonToCsv.middleware';
-import { predictedModelMiddleware } from '../middleware/predictedModel.middleware';
-import { csvToJsonMiddleware } from '../middleware/csvToJson.middleware';
-import { uploadCsv } from '../middleware/uploadCsv.middleware';
+import { jsonToCsvMiddleware } from '../middleware/csv/jsonToCsv.middleware';
+import { predictedModelMiddleware } from '../middleware/csv/predictedModel.middleware';
+import { csvToJsonMiddleware } from '../middleware/csv/csvToJson.middleware';
+import { uploadCsv } from '../middleware/csv/uploadCsv.middleware';
 
 const proccessCsvRouter = express();
 
