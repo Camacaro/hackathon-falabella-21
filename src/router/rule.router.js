@@ -17,6 +17,6 @@ ruleRouter.get(`${prefix}/all`, ruleMiddleware);
 
 ruleRouter.post(`${prefix}/add`, ...validationsMiddleware(), addRuleMiddleware);
 
-ruleRouter.delete(`${prefix}/delete`, ...validationsMiddleware(), deleteMiddleware);
+ruleRouter.delete(`${prefix}/delete/:id`, deleteMiddleware);
 
 export default ruleRouter;
