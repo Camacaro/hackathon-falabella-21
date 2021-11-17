@@ -1,7 +1,8 @@
 import express from 'express'
 import { httpResponse } from '../utils/httpResponse';
-import { ruleMiddleware } from '../middleware/rule.middleware';
-import { addRuleMiddleware } from '../middleware/addRule.middleware';
+import { ruleMiddleware } from '../middleware/rules/rule.middleware';
+import { addRuleMiddleware } from '../middleware/rules/addRule.middleware';
+import { validationsMiddleware } from '../middleware/rules/validations.middleware';
 
 export const ruleRouter = express();
 
@@ -11,9 +12,8 @@ ruleRouter.get(`${prefix}/healthy`, async (req, res) => {
   return httpResponse({res, statusCode: 200})
 });
 
+ruleRouter.post(`${prefix}/all`, ruleMiddleware);
 
-ruleRouter.post(`${prefix}/get-all`, ruleMiddleware);
-
-ruleRouter.post(`${prefix}/add-rule`, addRuleMiddleware);
+ruleRouter.post(`${prefix}/add`, ...validationsMiddleware(), addRuleMiddleware);
 
 export default ruleRouter;

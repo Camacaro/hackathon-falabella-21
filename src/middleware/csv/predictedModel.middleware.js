@@ -1,5 +1,5 @@
-import { predictedModel } from "../controller/predictedModel.controller"
-import { httpResponse } from "../utils/httpResponse"
+import { predictedModel } from "../../controller/csv/predictedModel.controller"
+import { httpResponse } from "../../utils/httpResponse"
 
 export const predictedModelMiddleware = (req, res, next) => {
   console.log('3. predictedModelMiddleware')

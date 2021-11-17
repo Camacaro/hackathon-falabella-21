@@ -1,5 +1,5 @@
-import { jsonToCsv } from "../controller/jsonToCsv.controller"
-import { donwloadFile, httpResponse } from "../utils/httpResponse"
+import { jsonToCsv } from "../../controller/csv/jsonToCsv.controller"
+import { donwloadFile, httpResponse } from "../../utils/httpResponse"
 
 export const jsonToCsvMiddleware = async (req, res, next) => {
   console.log('4. jsonToCsvMiddleware')
