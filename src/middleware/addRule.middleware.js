@@ -8,7 +8,7 @@ export const addRuleMiddleware = async (req, res, next) => {
     if (req == undefined) {
       return httpResponse({res, statusCode: 400, message: 'rule undefined' })
     }
-    //const response =  addController(req);
+    addController(req);
     return httpResponse({res, statusCode: 200})
   } catch (error) {
     console.log(error)
