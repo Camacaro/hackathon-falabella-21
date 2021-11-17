@@ -1,4 +1,4 @@
-import {RULES} from '../mock/rules'
+const RULES = require('../mock/rules');
 
 export const predictedModel = (csvJSON) => {
   csvJSON.forEach(pkg => {
