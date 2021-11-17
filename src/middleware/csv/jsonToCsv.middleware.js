@@ -10,7 +10,7 @@ export const jsonToCsvMiddleware = async (req, res, next) => {
     }
     const {nameFile} = await jsonToCsv(dataPredicted);
     const url = `${req.protocol}://${req.headers.host}/csv/file/${nameFile}`
-    return httpResponse({res, statusCode: 400, payload: url })  
+    return httpResponse({res, statusCode: 200, payload: url })  
   } catch (error) {
     console.log(error)
     return httpResponse({res, statusCode: 500 })
