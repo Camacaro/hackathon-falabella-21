@@ -12,12 +12,8 @@ ruleRouter.get(`${prefix}/healthy`, async (req, res) => {
 });
 
 
-ruleRouter.post(`${prefix}/get-all`, async (req, res) => {
-  return ruleMiddleware(req, res);
-});
+ruleRouter.post(`${prefix}/get-all`, ruleMiddleware);
 
-ruleRouter.post(`${prefix}/add-rule`, async (req, res) => {
-  return addRuleMiddleware(req, res);
-});
+ruleRouter.post(`${prefix}/add-rule`, addRuleMiddleware);
 
 export default ruleRouter;

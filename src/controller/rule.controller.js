@@ -1,4 +1,4 @@
-const RULES = require('../mock/rules');
+import {RULES} from '../mock/rules'
 
 export const ruleController = (rule) => {
    return RULES;
