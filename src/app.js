@@ -14,6 +14,8 @@ app.use( express.json() );
 
 app.use( express.static( path.resolve( __dirname , 'public') ) );
 
+app.use('/csv/file', express.static(path.resolve(__dirname, 'cvsProcessed')));
+
 app.use( router )
 
 app.listen(config.port, async () => {

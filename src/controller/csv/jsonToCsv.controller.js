@@ -3,7 +3,8 @@ import {createObjectCsvWriter} from 'csv-writer'
 import { headersCsv } from '../../utils/headersCsv';
 
 export const jsonToCsv = async (json) => {  
-  const filePath = path.resolve( __dirname , `../../cvsProcessed/${new Date().toISOString()}.csv`)
+  const nameFile = `${new Date().toISOString()}.csv`;
+  const filePath = path.resolve( __dirname , `../../cvsProcessed/${nameFile}`)
 
   const csvWriter = createObjectCsvWriter({
     path: filePath,
@@ -12,5 +13,5 @@ export const jsonToCsv = async (json) => {
 
   await csvWriter.writeRecords(json)
 
-  return filePath
+  return {filePath, nameFile}
 }
