@@ -3,8 +3,8 @@ import { httpResponse } from "../../utils/httpResponse"
 
 export const ruleMiddleware = async (req, res, next) => {
   try {
-    const response =  getRules();
-    return httpResponse({res, statusCode: 200, payload: response})
+    const rules = await getRules();
+    return httpResponse({res, statusCode: 200, payload: rules})
   } catch (error) {
     console.log(error)
     return httpResponse({res, statusCode: 500 })

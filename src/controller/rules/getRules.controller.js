@@ -1,5 +1,6 @@
-import { RULES } from "../../mock/rules";
+import { Rule } from "../../schemas/ruleSchema";
 
-export const getRules = (rule) => {
-  return RULES;
+export const getRules = async () => {
+  const rules = await Rule.find({})  
+  return rules;
 }
