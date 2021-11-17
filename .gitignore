@@ -6,3 +6,4 @@ build/
 .vscode
 src/cvsProcessed/**
 !src/cvsProcessed/.keep
+.DS_Store
