@@ -5,7 +5,7 @@ export const predictedModel = (csvJSON) => {
     let pkgProability = 0;
     let pkgStatus = checkItinerary(pkg);        
     RULES.forEach(rule => {
-      let delayedProbability = processRule(pkg, rule);
+      let delayedProbability = processRule(pkg, rule, pkgStatus);
       pkgProability = pkgProability + delayedProbability
     });    
     pkg[`% Delay Package Probability in NODE${pkgStatus.whereAmIHeading}`] = pkgProability;
@@ -13,7 +13,7 @@ export const predictedModel = (csvJSON) => {
     return csvJSON;
 }
 
-const processRule = (pkg, rule) => {
+const processRule = (pkg, rule, pkgStatus) => {
   const ruleWeight = rule.weight;
   let total = 0;
   let condition = 0;
@@ -21,6 +21,11 @@ const processRule = (pkg, rule) => {
     let aux = rule.conditions.filter(condition => condition.value === pkg[rule.field]);
     condition = aux[0] ? aux[0].weight : 0;
   }
+  else if(rule.type === 'DELAYED_NODE'){
+    let aux = rule.conditions.filter(condition => condition.value === pkg[`NODE ARRIVAL${pkgStatus.whereAmI}`]);
+    condition = aux[0] ? aux[0].weight : 0;
+  }
+  
   return ruleWeight * condition;
 }
 
@@ -44,6 +49,7 @@ const checkItinerary = (pkg) => {
   };  
   return {
     length: itineraryLength,
+    whereAmI: whereAmIHeading -1,
     whereAmIHeading: whereAmIHeading
   }
 }

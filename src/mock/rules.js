@@ -51,4 +51,21 @@ export const RULES = [
       },
     ],
   },
+  {
+    id: "rule003",
+    name: "AM_I_DELAYED",
+    type: "DELAYED_NODE",
+    status: "ACTIVE",
+    weight: 0.7,
+    conditions: [
+      {
+        value: "DELAYED",
+        weight: 1,
+      },
+      {
+        value: "NON_DELAYED",
+        weight: 0,
+      }
+    ],
+  }  
 ];
