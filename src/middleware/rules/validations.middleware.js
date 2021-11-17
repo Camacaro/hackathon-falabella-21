@@ -8,5 +8,7 @@ export const validationsMiddleware = () => ([
   check('field', 'El campo es requerido').isString().isLength({min: 3}),
   check('weight', 'El peso es requerido').isNumeric().isLength({ min: 0, max: 1 }),
   check('conditions', 'Las condiciones son requerido').isLength({min: 1}),
+  check('conditions.*.value', 'Las condiciones deben tener un valor, es requerido').not().isEmpty(),
+  check('conditions.*.weight', 'Las condiciones deden de tener un peso, es requerido').not().isEmpty(),
   validBodyMiddleware
 ])
