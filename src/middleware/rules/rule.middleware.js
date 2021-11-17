@@ -1,6 +1,6 @@
 import path from 'path';
-import { ruleController } from "../controller/rule.controller";
-import { httpResponse } from "../utils/httpResponse"
+import { ruleController } from "../../controller/rule.controller";
+import { httpResponse } from "../../utils/httpResponse"
 
 export const ruleMiddleware = async (req, res, next) => {
 

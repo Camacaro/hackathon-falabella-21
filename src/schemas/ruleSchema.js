@@ -1,13 +1,7 @@
-const mongoose = require('../service/db/mongodb-connection');
 
-const Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose'
 
-// const schemas = {
-const ruleShema = mongoose.Schema({
-  id: {
-    type: String,
-    required: true,
-  },
+const RuleSchema = Schema({
   name: {
     type: String,
     required: true,
@@ -35,6 +29,9 @@ const ruleShema = mongoose.Schema({
 });
 
 
-const Rule = mongoose.model("Rule", ruleShema);
+RuleSchema.methods.toJSON = function() {
+  const { __v, ...data  } = this.toObject();
+  return data;
+}
 
-module.exports = Rule;
+export const Rule = model("Rule", RuleSchema);
