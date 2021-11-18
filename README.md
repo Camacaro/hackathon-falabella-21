@@ -25,6 +25,8 @@ La aplicacion cuenta con unas API
 
 Todas las dependencias estan descritas en el fichero de configuracion de package.json
 
+El codigo de R se encuentra en la carpera 'R Data'
+
 El puerto por defecto es el ```4000``` para evitar posibles conflictos
 
 N/A: No aplica
@@ -37,7 +39,7 @@ git
 IDE de desarrollo
 
 ### Probar la aplicación mediante la interface web
-1- Clonar el repositorio usando git o cualqueir asistente grafico
+1- Clonar el repositorio usando [Git](https://github.com/ernestojr/hackathon-falabella-21-front)  o cualqueir asistente grafico
    Una vez descargado puede ejecutar ```npm start```
    
 2- Cargar Reglas
